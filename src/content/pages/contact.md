@@ -1,14 +1,14 @@
 ---
-title: Get in touch
+title: Contacto
 seo:
-  title: Contact
-  description: Get in touch through email or social media! Let me know how I can help.
+  title: Contacto | Maicol Geovany Torrez Ramirez
+  description: Datos de contacto de Maicol Geovany Torrez Ramirez.
 ---
 
-Thank you for reaching out! Whether you have a question, a suggestion, or just want to share your thoughts, I'm all ears. Feel free to get in touch through any of the methods below:
+Estoy disponible para conversar sobre desarrollo web, proyectos y oportunidades de colaboración. Puedes escribirme o llamarme:
 
-_Email:_
-Feel free to drop me an email at [example@example.com](mailto:example@example.com), and I'll do my best to respond as soon as possible.
+- **Correo:** [maicolgeovany445@gmail.com](mailto:maicolgeovany445@gmail.com)
+- **Teléfono:** [503-7761-9993](tel:+50377619993)
+- **Ubicación:** San Juan Opico, El Salvador
+- **GitHub:** [maicol50](https://github.com/maicol50)
 
-_Social Media:_
-Connect with me on social media as well. Find me on [Twitter](https://twitter.com) or [LinkedIn](https://www.linkedin.com/).

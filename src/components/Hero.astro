@@ -10,28 +10,30 @@ const { title, image, text, actions } = Astro.props;
 ---
 
 {(title || image?.src || text || (actions && actions.length > 0)) && (
-    <section class="mb-16 flex w-full flex-col gap-8 sm:mb-24">
-        {title && <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>}
+    <section class="mb-16 grid w-full grid-cols-1 items-center gap-8 sm:mb-24 md:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)] md:gap-10">
+        <div class="flex flex-col gap-6">
+            {title && <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>}
+            {text && <div class="prose sm:prose-lg max-w-none" set:html={marked.parse(text)} />}
+            {actions && actions.length > 0 && (
+                <div class="flex flex-wrap gap-4">
+                    {actions.map((action) => (
+                        <Button href={action.href}>{action.text}</Button>
+                    ))}
+                </div>
+            )}
+        </div>
         {image?.src && (
-            <figure>
+            <figure class="mx-auto w-full max-w-sm md:max-w-none">
                 <CustomImage
-                    class="w-full"
+                    class="aspect-[3/4] w-full rounded-sm border border-black/10 object-cover object-top dark:border-white/15"
                     {...image}
-                    widths={[480, 640, 768, 1024, 1536]}
-                    sizes="(min-width: 832px) 768px, calc(100vw - 32px)"
+                    widths={[320, 480, 640, 768]}
+                    sizes="(min-width: 768px) 300px, (min-width: 640px) 384px, calc(100vw - 32px)"
                     fetchpriority="high"
                     loading="eager"
                 />
                 {image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{image.caption}</figcaption>}
             </figure>
-        )}
-        {text && <div class="prose sm:prose-lg max-w-none" set:html={marked.parse(text)} />}
-        {actions && actions.length > 0 && (
-            <div class="flex flex-wrap gap-4">
-                {actions.map((action) => (
-                    <Button href={action.href}>{action.text}</Button>
-                ))}
-            </div>
         )}
     </section>
 )}

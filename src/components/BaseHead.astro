@@ -4,6 +4,7 @@ import newsreaderWoff2 from '@fontsource-variable/newsreader/files/newsreader-la
 import { getImage } from 'astro:assets';
 import siteConfig from '../data/site-config';
 import type { ImageInput } from '../types';
+import { withBase } from '../utils/path-utils';
 
 import '../styles/global.css';
 
@@ -21,7 +22,7 @@ let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {
     if (typeof image.src === 'string') {
         resolvedImage = {
-            src: new URL(image.src, Astro.site).toString(),
+            src: new URL(image.src.startsWith('/') ? withBase(image.src) : image.src, Astro.site).toString(),
             alt: image.alt
         };
     } else {
@@ -33,7 +34,7 @@ if (image?.src) {
             fit: 'cover'
         });
         resolvedImage = {
-            src: new URL(optimizedImage.src, Astro.site).toString(),
+            src: new URL(withBase(optimizedImage.src), Astro.site).toString(),
             alt: image.alt
         };
     }
@@ -45,7 +46,7 @@ if (image?.src) {
  * query-specific content and inbound parameters are typically for tracking.
  * Trailing slashes follow the user's Astro configuration.
  */
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(withBase(Astro.url.pathname), Astro.site);
 ---
 
 <!-- High Priority Global Metadata -->
@@ -59,9 +60,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <link rel="preload" as="font" type="font/woff2" href={newsreaderWoff2} crossorigin="anonymous" />
 
 <!-- Low Priority Global Metadata -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+<link rel="alternate" type="application/rss+xml" href={withBase('/rss.xml')} title="RSS" />
 
 <!-- Page Metadata -->
 <link rel="canonical" href={canonicalURL} />

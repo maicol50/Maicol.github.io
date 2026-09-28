@@ -1,19 +1,18 @@
-import avatar from '../assets/images/avatar.jpg';
-import hero from '../assets/images/hero.jpg';
+import { default as avatar, default as hero } from '../assets/images/maicol-portrait.png';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://maicol.github.io',
+    website: 'https://maicol50.github.io/Maicol.github.io',
     avatar: {
         src: avatar,
-        alt: 'Maicol Torres'
+        alt: 'Maicol Geovany Torrez Ramirez'
     },
-    title: 'Maicol',
-    subtitle: 'Desarrollador Web Backend',
-    description: 'Portafolio y blog personal de Maicol, especializado en desarrollo web y tecnologías backend.',
+    title: 'Maicol Geovany',
+    subtitle: 'Desarrollador backend | Estudiante de Ingeniería de Software',
+    description: 'Perfil profesional de Maicol Geovany Torrez Ramirez, estudiante de Ingeniería en Desarrollo de Software y desarrollador web backend.',
     image: {
         src: '/dante-preview.jpg',
-        alt: 'Maicol - Portafolio y Blog'
+        alt: 'Portafolio profesional de Maicol Geovany Torrez Ramirez'
     },
     headerNavLinks: [
         {
@@ -54,15 +53,15 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: '¡Hola y bienvenido a mi rincón en la web!',
-        text: "Soy **Maicol**, un desarrollador web backend y estudiante de ingeniería en desarrollo de software apasionado por la creación de soluciones eficientes y robustas.\nMi enfoque se centra en el desarrollo backend utilizando tecnologías modernas para construir aplicaciones excepcionales.\n\nSiéntete libre de explorar algunos de mis proyectos de código en [GitHub](https://github.com/maicol50).",
+        title: 'Maicol Geovany Torrez Ramirez',
+        text: 'Estudiante de último ciclo de Ingeniería en Desarrollo de Software en ITCA-FEPADE y desarrollador web backend. He trabajado en un sistema full stack de gestión de recursos humanos y dietas, creando módulos, paneles administrativos y funcionalidades conectadas a bases de datos.\n\nMe caracterizan el pensamiento analítico, la comunicación y las ganas de aprender. [Conoce mi código en GitHub](https://github.com/maicol50).',
         image: {
             src: hero,
-            alt: 'Maicol trabajando en su escritorio frente al ordenador'
+            alt: 'Retrato de Maicol Geovany Torrez Ramirez con traje azul'
         },
         actions: [
             {
-                text: 'Contáctame',
+                text: 'Contactarme',
                 href: '/contact'
             }
         ]

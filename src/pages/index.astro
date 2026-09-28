@@ -1,42 +1,77 @@
 ---
-import { getCollection } from 'astro:content';
-import Button from '../components/Button.astro';
 import Hero from '../components/Hero.astro';
-import PostPreview from '../components/PostPreview.astro';
-import ProjectPreview from '../components/ProjectPreview.astro';
 import siteConfig from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { sortItemsByDateDesc } from '../utils/data-utils';
-
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-const featuredPosts = posts.filter(({ data }) => data.isFeatured);
-
-const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-const featuredProjects = projects.filter(({ data }) => data.isFeatured);
 ---
 
 <BaseLayout description={siteConfig.description}>
     <Hero {...siteConfig.hero} />
-    {featuredProjects?.length > 0 && (
-        <div class="mb-16 sm:mb-24">
-            <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Projects</h2>
-            {featuredProjects.map((project) => (
-                <ProjectPreview project={project} class="mb-10 sm:mb-12" headingLevel="h3" />
-            ))}
-            <div class="mt-12 sm:mt-16">
-                <Button href="/projects">View All Projects</Button>
+    <section class="mb-14 border-t border-main pt-8 sm:mb-16" aria-labelledby="experience-title">
+        <h2 id="experience-title" class="mb-6 font-serif text-2xl font-medium">Experiencia en proyectos</h2>
+        <article class="border-l-2 border-main pl-5">
+            <h3 class="text-lg font-semibold">Sistema de Gestión de Recursos Humanos y Dietas</h3>
+            <p class="mt-1 text-sm">Proyecto full stack</p>
+            <ul class="mt-4 list-disc space-y-2 pl-5 leading-relaxed">
+                <li>Desarrollo de módulos backend y frontend con PHP 8 y Laravel 12, aplicando patrones de arquitectura y lógica de negocio.</li>
+                <li>Creación de paneles administrativos con Filament, formularios dinámicos y gestión de relaciones entre datos.</li>
+                <li>Uso de Git para el control de versiones y apoyo en la documentación técnica.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section class="mb-14 border-t border-main pt-8 sm:mb-16" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="mb-6 font-serif text-2xl font-medium">Conocimientos</h2>
+        <div class="grid gap-8 sm:grid-cols-2">
+            <div>
+                <h3 class="mb-3 font-semibold">Tecnologías</h3>
+                <p class="leading-relaxed">PHP, JavaScript, Python, C#, HTML5, CSS3, Laravel 12, Filament 5, MariaDB, MySQL y MongoDB.</p>
+            </div>
+            <div>
+                <h3 class="mb-3 font-semibold">Otras áreas</h3>
+                <p class="leading-relaxed">Desarrollo web frontend y backend, bases de datos relacionales y NoSQL, soporte de software y hardware.</p>
             </div>
         </div>
-    )}
-    {featuredPosts?.length > 0 && (
-        <div class="mb-16 sm:mb-24">
-            <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Writing</h2>
-            {featuredPosts.map((post) => (
-                <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
-            ))}
-            <div class="mt-12 sm:mt-16">
-                <Button href="/blog">View All Posts</Button>
+    </section>
+
+    <section class="mb-14 border-t border-main pt-8 sm:mb-16" aria-labelledby="education-title">
+        <h2 id="education-title" class="mb-6 font-serif text-2xl font-medium">Formación académica</h2>
+        <ol class="space-y-5">
+            <li>
+                <h3 class="font-semibold">Ingeniería en Desarrollo de Software</h3>
+                <p>ITCA-FEPADE · Último ciclo, 2026</p>
+            </li>
+            <li>
+                <h3 class="font-semibold">Bachillerato General</h3>
+                <p>Complejo Educativo Soldado Óscar Antonio Ortiz Reyes · 2023</p>
+            </li>
+            <li>
+                <h3 class="font-semibold">Noveno grado</h3>
+                <p>Centro Escolar Cantón Chanmico · 2021</p>
+            </li>
+        </ol>
+    </section>
+
+    <section class="mb-14 border-t border-main pt-8 sm:mb-16" aria-labelledby="more-title">
+        <h2 id="more-title" class="mb-6 font-serif text-2xl font-medium">Más sobre mí</h2>
+        <div class="grid gap-8 sm:grid-cols-2">
+            <div>
+                <h3 class="mb-3 font-semibold">Fortalezas</h3>
+                <p class="leading-relaxed">Comunicación, trabajo en equipo, pensamiento analítico, colaboración, aprendizaje rápido y autonomía.</p>
+            </div>
+            <div>
+                <h3 class="mb-3 font-semibold">Idioma</h3>
+                <p class="leading-relaxed">Español · Inglés básico, nivel 4 (preintermedio).</p>
             </div>
         </div>
-    )}
+    </section>
+
+    <section class="mb-16 border-t border-main pt-8 sm:mb-24" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="mb-6 font-serif text-2xl font-medium">Contacto</h2>
+        <ul class="space-y-3">
+            <li><a class="underline decoration-dashed underline-offset-4 hover:decoration-solid" href="mailto:maicolgeovany445@gmail.com">maicolgeovany445@gmail.com</a></li>
+            <li><a class="underline decoration-dashed underline-offset-4 hover:decoration-solid" href="tel:+50377619993">503-7761-9993</a></li>
+            <li>San Juan Opico, El Salvador</li>
+            <li><a class="underline decoration-dashed underline-offset-4 hover:decoration-solid" href="https://github.com/maicol50">GitHub: maicol50</a></li>
+        </ul>
+    </section>
 </BaseLayout>
